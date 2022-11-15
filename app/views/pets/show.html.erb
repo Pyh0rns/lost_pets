@@ -1,5 +1,11 @@
-<h1>Pets#show</h1>
-<p>Find me in app/views/pets/show.html.erb</p>
+<div class="container w-50">
+  <h1 class="my-5">Details of <%= @pet.name %></h1>
 
-<h2><%= @pet.name %></h2>
-<p><%= @pet.species %></p>
+  <p>Species:<%= @pet.species %></p>
+
+  <p>Found <%= @pet.found_days_ago %> days ago, on <%= @pet.found_on %></p>
+
+  <%= link_to "Home", pets_path, class: "btn btn-primary" %>
+  <%= link_to "Edit", edit_pet_path(@pet), class: "btn btn-primary" %>
+  <%= link_to "Remove", pet_path(@pet), class: "btn btn-warning", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+</div>
